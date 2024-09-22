@@ -1,11 +1,23 @@
-import { useState } from 'react'
+import { useEffect} from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import ReactGA from 'react-ga';
 
 function App() {
-  const [count, setCount] = useState(0)
+  
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
 
+  const handleButtonClick = () => {
+    ReactGA.event({
+      category: 'User',
+      action: 'Clicked Button',
+      label: 'Demo Button'
+    });
+  };
+  
   return (
     <>
       <div>
@@ -18,8 +30,8 @@ function App() {
       </div>
       <h1>Demo ga</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+        <button onClick={handleButtonClick}>
+        Click me to track event!
         </button>      
       </div>
     
