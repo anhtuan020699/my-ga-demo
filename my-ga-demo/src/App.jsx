@@ -12,13 +12,12 @@ function App() {
 
   const handleButtonClick = () => {
     ReactGA.event({
+      category: 'User Interaction', 
       action: 'button_click', 
-      params: {
-        label: 'Demo Button', 
-        user_category: 'User' 
-      }
+      label: 'Demo Button'
     });
   };
+  
 
   return (
     <>
