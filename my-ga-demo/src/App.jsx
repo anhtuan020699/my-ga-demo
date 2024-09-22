@@ -13,16 +13,15 @@ function App() {
   const handleButtonClick = () => {
     ReactGA.event({
       category: 'User',
-      action: 'Clicked Button',
+      action: 'Clicked_Button',
       label: 'Demo Button'
     });
   };
   const handleAnotherButtonClick = () => {
-    console.log('Another button clicked');
     ReactGA.event({
-      category: 'User',
-      action: 'Clicked Another Button',
-      label: 'Another Demo Button'
+      category: 'Test',
+      action: 'Test_Click',
+      label: 'Test Button'
     });
   };
   return (
