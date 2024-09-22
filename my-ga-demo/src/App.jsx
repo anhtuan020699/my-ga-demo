@@ -17,7 +17,14 @@ function App() {
       label: 'Demo Button'
     });
   };
-  
+  const handleAnotherButtonClick = () => {
+    console.log('Another button clicked');
+    ReactGA.event({
+      category: 'User',
+      action: 'Clicked Another Button',
+      label: 'Another Demo Button'
+    });
+  };
   return (
     <>
       <div>
@@ -32,7 +39,10 @@ function App() {
       <div className="card">
         <button onClick={handleButtonClick}>
         Click me to track event!
-        </button>      
+        </button>     
+        <button onClick={handleAnotherButtonClick}>
+          Click me to track another event!
+        </button> 
       </div>
     
     </>
