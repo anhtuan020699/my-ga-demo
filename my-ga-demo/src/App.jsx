@@ -1,23 +1,24 @@
-import { useEffect} from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect } from 'react';
+import reactLogo from './assets/react.svg';
+import viteLogo from '/vite.svg';
+import './App.css';
 import ReactGA from 'react-ga4';
 
 function App() {
-  
   useEffect(() => {
-    ReactGA.pageview(window.location.pathname + window.location.search);
+    // Gọi pageview
+    ReactGA.send('pageview', {
+      page_path: window.location.pathname + window.location.search,
+    });
   }, []);
 
   const handleButtonClick = () => {
     ReactGA.event({
-      category: 'User Interaction', 
-      action: 'button_click', 
-      label: 'Demo Button'
+      category: 'User Interaction',
+      action: 'button_click',
+      label: 'Demo Button',
     });
   };
-  
 
   return (
     <>
@@ -32,12 +33,11 @@ function App() {
       <h1>Demo ga</h1>
       <div className="card">
         <button onClick={handleButtonClick}>
-        Click me to track event!
-        </button>            
+          Click me to track event!
+        </button>
       </div>
-    
     </>
-  )
+  );
 }
 
-export default App
+export default App;
