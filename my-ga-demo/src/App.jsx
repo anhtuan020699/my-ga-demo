@@ -4,8 +4,36 @@ import viteLogo from '/vite.svg';
 import './App.css';
 import ReactGA from 'react-ga4';
 
+const generateRandomUserData = () => {
+  const users = [
+    {
+      user_id: 'user1',
+      user_role: 'admin',
+      user_name: 'John Doe',
+    },
+    {
+      user_id: 'user2',
+      user_role: 'user',
+      user_name: 'Jane Smith',
+    },
+    {
+      user_id: 'user3',
+      user_role: 'guest',
+      user_name: 'Alex Johnson',
+    },
+    {
+      user_id: 'user4',
+      user_role: 'user',
+      user_name: 'Chris Lee',
+    },
+  ];
+
+  return users[Math.floor(Math.random() * users.length)];
+};
 function App() {
   useEffect(() => {
+    const userData = generateRandomUserData();
+    ReactGA.set(userData);
     ReactGA.send('pageview', {
       page_path: window.location.pathname + window.location.search,
     });
